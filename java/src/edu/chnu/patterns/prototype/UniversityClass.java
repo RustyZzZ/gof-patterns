@@ -2,7 +2,7 @@ package edu.chnu.patterns.prototype;
 
 import java.time.LocalDateTime;
 
-public abstract class UniversityClass  {
+public abstract class UniversityClass implements Cloneable {
 	private String subject;
 	private String lecturer;
 	private LocalDateTime time;
@@ -45,5 +45,10 @@ public abstract class UniversityClass  {
 		this.subject = subject;
 		this.lecturer = lecturer;
 		this.time = time;
+	}
+
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }

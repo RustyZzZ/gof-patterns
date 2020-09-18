@@ -16,13 +16,15 @@ public class Main {
 
 
 	private static void saveStudent(Student student) {
-		StudentDao.getInstance().saveStudent(student);
-		//ThreadSafeStudentDao.getInstance().saveStudent(student);
+		//StudentDao.getInstance().saveStudent(student);
+		ThreadSafeStudentDao.getInstance().saveStudent(student);
+		EnumSingleton.INSTANCE.saveStudent(student);
 	}
 
 	private static List<Student> getAllStudents() {
-		return StudentDao.getInstance().getAllStudents();
+		//return StudentDao.getInstance().getAllStudents();
 		//return ThreadSafeStudentDao.getInstance().getAllStudents();
+		return EnumSingleton.INSTANCE.getAllStudents();
 	}
 
 }

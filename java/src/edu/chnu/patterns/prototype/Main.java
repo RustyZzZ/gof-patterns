@@ -12,7 +12,7 @@ public class Main {
 	public static final String TEACHER = "Diachuk";
 	public static final LocalDateTime TIME = LocalDateTime.now();
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CloneNotSupportedException {
 		var initialLecture = getLectureClass();
 		var initialLab = getLabClass();
 		var classes = Arrays.asList(initialLecture, initialLab);
@@ -26,11 +26,12 @@ public class Main {
 		collect.forEach(UniversityClass::notifyAttendee);
 	}
 
-	private static List<UniversityClass> scheduleForNextMonth(UniversityClass cl) {
+	private static List<UniversityClass> scheduleForNextMonth(UniversityClass cl) throws CloneNotSupportedException {
 		var scheduledList = new ArrayList<UniversityClass>();
 		for (int i = 0; i < 4; i++) {
-			var copiedCl = cl.copy();
-			copiedCl.setTime(cl.getTime().plus(i+1, ChronoUnit.WEEKS));
+			var copiedCl =  cl.getClass().cast(cl.clone());
+			//var copiedCl =  cl.clone();
+			copiedCl.setTime(cl.getTime().plus(i + 1, ChronoUnit.WEEKS));
 			scheduledList.add(copiedCl);
 		}
 
