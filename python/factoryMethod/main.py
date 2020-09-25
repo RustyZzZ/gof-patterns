@@ -45,7 +45,7 @@ class LectureClassFactory(ClassFactory):
     def __init__(self):
         super().__init__()
 
-    def schedule_class(self) -> UnivClass: return LabClass()
+    def schedule_class(self) -> UnivClass: return LectureClass()
 
 
 def schedule_lecture_and_lab_classes(subject, group):
