@@ -18,6 +18,11 @@ public class LectureClass extends UniversityClass {
 	private List<Integer> attendeeGroups;
 
 
+	public LectureClass(String subject, List<Integer> attendeeGroups) {
+		super(subject);
+		this.attendeeGroups = attendeeGroups;
+	}
+
 	@Override
 	public void notifyAttendee() {
 		attendeeGroups.forEach(this::notify);

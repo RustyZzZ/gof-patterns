@@ -1,3 +1,5 @@
-package edu.chnu.patterns.factoryMethod;public class UniversityClassFactory {
-    protected UniversityClass createClass(){}
+package edu.chnu.patterns.factoryMethod;
+
+public abstract class UniversityClassFactory {
+	protected abstract UniversityClass createClass(String subject, Integer group);
 }

@@ -12,6 +12,11 @@ import lombok.NoArgsConstructor;
 public class LabClass extends UniversityClass {
 	private Integer attendeeGroup;
 
+	public LabClass(String subject, int group) {
+		super(subject);
+		this.attendeeGroup = group;
+	}
+
 	@Override
 	public void notifyAttendee() {
 		System.out.println(this.attendeeGroup + " group will have LAB " + this.getSubject());
